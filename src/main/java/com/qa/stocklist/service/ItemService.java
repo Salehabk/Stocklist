@@ -21,24 +21,15 @@ public class ItemService {
 	}
 	
 	
-	public void additem(Item item) {
-		repo.save(item);
+	public Item create(Item item) {
+		return repo.save(item);
 	}
 	
 	public List<Item> getAll() {
 		return repo.findAll();
 	}
 	
-	public List<Item> findByName(String name) {
-		return getAll().stream()
-				.filter(item -> item.getName().equals(name))
-				.collect(Collectors.toList());
-	}
-	
-	public List<Item> findByNameQuery(String name) {
-		return repo.findItemByName(name);
-	}
-	
+
 	public Item readByID(long id) {
 		Optional<Item> option = repo.findById(id);
 		if(option.isPresent()) {
@@ -46,8 +37,19 @@ public class ItemService {
 		}
 		return null;
 	}
+	public void update(Item item, int id, String name, String Stock, int Quantity)  
+	{  
+	this.repo.save(item);  
+	}  
+	
 	public void delete(Item item) {
 		repo.deleteById(item.getId());
-	}			
-			}
+	}
+
+
+	}
+
+
+
+			
 
