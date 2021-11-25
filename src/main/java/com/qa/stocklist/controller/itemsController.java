@@ -43,9 +43,10 @@ public class itemsController {
 	public String update(@PathVariable long id, @RequestBody Item item) {
 		itemservice.delete(itemservice.readByID(id));
 		item.setId(id);
-		itemservice.create(item);
+		itemservice.save(item);
 		return "Product has been updated";
 	}
+	
 
 	@PostMapping("/deleteItem/{id}")
 	public String delete(@PathVariable long id) {

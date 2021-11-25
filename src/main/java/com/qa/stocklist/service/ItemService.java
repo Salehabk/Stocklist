@@ -37,7 +37,7 @@ public class ItemService {
 		}
 		return null;
 	}
-	public void update(Item item, int id, String name, String Stock, int Quantity)  
+	public void update(Item item, int id)
 	{  
 	this.repo.save(item);  
 	}  
@@ -45,6 +45,9 @@ public class ItemService {
 	public void delete(Item item) {
 		repo.deleteById(item.getId());
 	}
+
+
+
 
 
 	}
