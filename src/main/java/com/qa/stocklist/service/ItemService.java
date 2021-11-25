@@ -37,22 +37,21 @@ public class ItemService {
 		}
 		return null;
 	}
-	public void update(Item item, int id)
-	{  
-	this.repo.save(item);  
-	}  
+	public Item update(Item item) {
+
+    return repo.save(item);
+
+    }
 	
 	public void delete(Item item) {
 		repo.deleteById(item.getId());
 	}
 
 
+}
 
-
-
-	}
+	
 
 
 
 			
-

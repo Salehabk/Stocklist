@@ -89,7 +89,25 @@ class ServiceTestCase {
 	  service.delete(item);
   }
 
-}
+  
+  @Test
+  void testUpdate() {
 
+      // GIVEN
+      Long id = 1L;
+      Item newValues = new Item(1, "flour", "InStock", 1);
+      Item existing = new Item(id, "Butter", "InStock", 2);
+      Item updated = new Item(id, newValues.getName(), newValues.getStock(), newValues.getQuantity());
 
+      // WHEN
+      Mockito.when(this.repository.findById(id)).thenReturn(Optional.of(existing));
+      Mockito.when(this.repository.save(updated)).thenReturn(updated);
+
+      // THEN
+      assertThat(this.service.update(newValues)).isEqualTo(updated);
+
+      // verify
+      Mockito.verify(this.repository, Mockito.times(1)).findById(id);
+      Mockito.verify(this.repository, Mockito.times(1)).save(updated);}
+  }
  
