@@ -2,6 +2,8 @@ package com.qa.stocklist.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,37 +25,34 @@ public class itemsController {
 	}
 
 	@PostMapping("/createItem")
-	public String create(@RequestBody Item item) {
-		itemservice.create(item);
-		return "Item has been added";
+	public ResponseEntity<Item> create(@RequestBody Item item) {
+		return new ResponseEntity<>(itemservice.create(item), HttpStatus.CREATED);
 
 	}
 
 	@GetMapping("/readAll")
-	public List<Item> read() {
-		return itemservice.getAll();
+	public ResponseEntity<List<Item>> read() {
+		return new ResponseEntity<>(itemservice.getAll(), HttpStatus.OK);
 	}
 
 	@GetMapping("/readByID/{id}")
-	public Item readById(@PathVariable long id) {
-		return itemservice.readByID(id);
+	public ResponseEntity<Item> readById(@PathVariable long id) {
+		return new ResponseEntity<>(itemservice.readByID(id), HttpStatus.CONTINUE);
 
 	}
 
 	@PutMapping("/update/{id}")
-	public String updateQuantity(@PathVariable long id, @RequestBody Item item) {
+	public ResponseEntity<Item> updateQuantity(@PathVariable long id, @RequestBody Item item) {
 		itemservice.readByID(id);
 		item.setId(id);
-		itemservice.update(item);
-		return "Product has been updated";
+		return new ResponseEntity<>(itemservice.update(item), HttpStatus.ACCEPTED);
+
 	}
-	
 
 	@PostMapping("/deleteItem/{id}")
-	public String delete(@PathVariable long id) {
+	public ResponseEntity<String> delete(@PathVariable long id) {
 		itemservice.delete(itemservice.readByID(id));
-		return "Delete successful";
+		return new ResponseEntity<>("Delete successful", HttpStatus.ACCEPTED);
 	}
-	
 
 }
