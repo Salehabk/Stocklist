@@ -33,5 +33,10 @@ build/
 ### VS Code ###
 .vscode/
 
+<<<<<<< HEAD
 .DS_Store/
 
+=======
+### .DS_Store###
+.DS_Store/
+>>>>>>> 619d5db02d320ca517c103c2edce1d0b6adcebc8
