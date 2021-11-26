@@ -9,7 +9,7 @@ import com.qa.stocklist.entity.Item;
 
 @Repository
 public interface ItemRepo extends JpaRepository<Item, Long> { 
-	List<Item> findItemByName(String name);
+	List<Item> findItemById(String name);
 	List<Item> findItemByQuantity(Integer quantity);
 }
 
