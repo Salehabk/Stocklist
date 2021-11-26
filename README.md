@@ -5,9 +5,14 @@ IMPROVEMENTS time management, planning and getting more acquainted with the codi
 SCREENSHOTS* 
 
 
+<img width="999" alt="Screenshot 2021-11-26 at 03 02 05" src="https://user-images.githubusercontent.com/91885079/143600401-7483ab15-bec1-4e78-9d26-d3ad5cc97e0b.png">
+<img width="999" alt="Screenshot 2021-11-26 at 03 03 51" src="https://user-images.githubusercontent.com/91885079/143600432-dd3cdfd1-f708-4dfb-be45-b83a8a9499e9.png">
+<img width="1321" alt="Screenshot 2021-11-26 at 03 55 33" src="https://user-images.githubusercontent.com/91885079/143600447-b5221f0f-6e00-4040-b866-<img width="850" alt="Screenshot 2021-11-25 at 18 44 38" src="https://user-images.githubusercontent.com/91885079/143600538-fb81e897-dc84-4d8f-b56f-29024b265e3a.png">
+fffab733fe88.png">
 
 ** LINK FOR JIRA BOARD: https://salehaqalab.atlassian.net/jira/software/projects/SBS/boards/2/roadmap?selectedIssue=SBS-23 ** 
 
 
 
 ** RISK ASSESSMENT** Risk Matrix for QA Project.pdf
+[Risk Matrix for QA Project.pdf](https://github.com/Salehabk/Stocklist/files/7609491/Risk.Matrix.for.QA.Project.pdf)
