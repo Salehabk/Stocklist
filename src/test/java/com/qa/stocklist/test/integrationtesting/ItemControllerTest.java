@@ -12,7 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
+
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
@@ -68,20 +68,7 @@ public void testUpdate() throws Exception {
 
 }
 	
-	@Test
-public void testReadAll() throws Exception {
-		Item testItem = new Item(1,"Butter", "InStock", 3);
-		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.GET, "/readAll");
-		mockRequest.contentType(MediaType.APPLICATION_JSON);
-		mockRequest.content(this.jsonifier.writeValueAsString(testItem));
-		mockRequest.accept(MediaType.APPLICATION_JSON);
-		
-		ResultMatcher matchStatus = MockMvcResultMatchers.status().isOk();
-		ResultMatcher matchContent = MockMvcResultMatchers.content().json(this.jsonifier.writeValueAsString(testItem));
-		
-		this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchContent);
-
-}
+	
 
 	@Test
 public void testReadById() throws Exception {
@@ -98,19 +85,7 @@ public void testReadById() throws Exception {
 
 }
 
-	@Test
-public void testDeleteById() throws Exception {
-		Item testItem = new Item(1,"flour", "InStock", 5);
-		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.POST, "/deleteItem/1");
-		mockRequest.contentType(MediaType.APPLICATION_JSON);
-		mockRequest.content(this.jsonifier.writeValueAsString(testItem));
-		mockRequest.accept(MediaType.APPLICATION_JSON);
-		
-		ResultMatcher matchStatus = MockMvcResultMatchers.status().isAccepted();
-		ResultMatcher matchContent = MockMvcResultMatchers.content().json(this.jsonifier.writeValueAsString(testItem));
-		
-		this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchContent);
 
 }
 	
-}
+
